@@ -31,7 +31,7 @@ public class Hours_Logger {
                        Student Will Smith Chemistry 6
                        """;
 
-        // Separate data and store into variables
+        // Separate data and store into array
         String[] records = data.split("\n");
 
         Person[] people = new Person[8];
@@ -39,11 +39,12 @@ public class Hours_Logger {
 
         for (String record : records) {
             record = record.trim();
-            String[] info = record.split(" ");
+            String[] info = record.split(" "); //seperates string to divide data
 
-//            checks if person exists
             Person person = checkExistence(people, info[0], info[1], info[2], count);
+//            if person doesn't exist create new object and store into person array
             if (person == null) {
+//                upcasting based on title
                 if (info[0].equals("Student")) {
                     person = new Student(info[1], info[2]);
                 } else if (info[0].equals("Professor")) {
@@ -51,14 +52,15 @@ public class Hours_Logger {
                 } else if (info[0].equals("TA")) {
                     person = new TA(info[1], info[2]);
                 }
-                people[count]=person;
-                person.addHours(Integer.parseInt(info[4]));
+                people[count]=person; //add to array of persons
+                person.addHours(Integer.parseInt(info[4])); //calculates and adds hours
                 count++;
             }else{
                 person.addHours(Integer.parseInt(info[4]));
             }
         }
         
+//        printing results
         for (Person person : people){
             System.out.println("--");
             System.out.println("Title: " + person.getTitle() + " Full Name: " + person.getFullName() + " Total Hours: " + person.getHours());
@@ -66,7 +68,9 @@ public class Hours_Logger {
         
     }
 
+    //checks if person exists
     private static Person checkExistence(Person[] people, String title, String fName, String lName, int count) {
+//        compares information throughout array and returns if exists and null if not
         for (int i = 0; i < count; i++) {
             if (people[i].getFullName().equals(fName + " " + lName) & people[i].getTitle().equals(title)) {
                 return people[i];

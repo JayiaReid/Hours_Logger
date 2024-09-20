@@ -16,7 +16,6 @@ public class Student extends Person{
     
     @Override
     public int getParticipateHours(int courseHours){
-        this.participateHours=courseHours;
         return courseHours;
     }
 

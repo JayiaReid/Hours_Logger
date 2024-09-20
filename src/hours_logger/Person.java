@@ -22,6 +22,7 @@ public abstract class Person implements ParticipateHours {
         this.participateHours=0;
     }
     
+    //calculates participate hours based on title of sub classes
     @Override
    public abstract int getParticipateHours(int courseHours);
    
@@ -30,13 +31,15 @@ public abstract class Person implements ParticipateHours {
    }
    
    public void addHours(int hours){
+       //calls function to calculate partcipate hours and adds to exixtsing or adds to hours for object
        this.participateHours+=getParticipateHours(hours);
    }
    
    public int getHours(){
+//       returns partcipate hours stored in obejct variable
        return this.participateHours;
    }
    
-   public abstract String getTitle();
+   public abstract String getTitle(); //returns title
     
 }

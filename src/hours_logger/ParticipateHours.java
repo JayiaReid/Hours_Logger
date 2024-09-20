@@ -9,6 +9,7 @@ package hours_logger;
  * @author jayia
  */
 public interface ParticipateHours {
+//    interface
     
     int getParticipateHours(int courseHours);
 }

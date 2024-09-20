@@ -15,9 +15,8 @@ public class TA extends Person{
 
     @Override
     public int getParticipateHours(int courseHours) {
-        int hours = courseHours>4? 2: 1;
-        this.participateHours+=hours;
-        return hours;
+        int Labhours = courseHours>4? 2: 1;
+        return Labhours;
     }
 
     @Override

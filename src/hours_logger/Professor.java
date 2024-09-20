@@ -16,9 +16,8 @@ public class Professor extends Person {
 
     @Override
     public int getParticipateHours(int courseHours) {
-        int hours = courseHours>4? courseHours-2: courseHours-1;
-        this.participateHours=hours;
-        return hours;
+        int Lecturehours = courseHours>4? courseHours-2: courseHours-1;
+        return Lecturehours;
     }
 
     @Override
